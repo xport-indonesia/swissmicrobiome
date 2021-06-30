@@ -1,3 +1,0 @@
-```
-Site is underconstruction.
-```
