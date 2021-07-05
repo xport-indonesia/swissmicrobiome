@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Swiss Microbiome</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<body style="background-color: #FFF5EF; background-image: url('./artboard.svg'); background-size: cover; font-family: Arial, Helvetica, sans-serif;">
+  <div class="container">
+    <div class="row vh-100 mx-0">
+      <div class="col-md my-5">
+        <h3 class="mb-5 pb-5 fw-bold">Swiss Microbiome</h3>
+        <div class="pt-5">
+          <div class="pt-5">
+            <div class="pt-5">
+              <div class="pt-5">
+                <div class="pt-sm-5">
+                  <h1 class="pt-sm-5 fw-bold">
+                    Our Website<br>
+                    is under construction
+                  </h1>
+                  <div class="mt-2 mb-4">
+                    We are currently<br>
+                    working on this page.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md content my-sm-5 mx-lg-5">
+        <div class="col pt-sm-5 pb-sm-5">
+          <div class="container p-0 pt-sm-5 m-0">
+            <div class="">
+              <form id="mainForm" class="needs-validation" novalidate>
+                <fieldset id="form" class="form-group">
+                  <h3 class="pt-sm-5 fw-bold ps-sm-3"><span class="ps-sm-2 me-sm-2"></span>How can we help you?</h3>
+                  <div class="row pt-3">
+                    <div class="col-sm">
+                      Your Name
+                      <input id="name" oninput="nameValidation();" class="w-100 border-0 rounded p-1 form-control" type="text" name="name" maxlength="100" style="background-color: #EADAD3;" required>
+                    </div>
+                    <div class="col-sm pt-2 pt-sm-0">
+                      Email
+                      <input id="email" oninput="emailValidation();" class="w-100 border-0 rounded p-1 form-control" type="email" name="email" maxlength="100" style="background-color: #EADAD3;" required>
+                    </div>
+                  </div>
+                  <div class="my-2">
+                    Messages
+                    <textarea id="messages" oninput="messagesValidation();" rows="5" class="w-100 border-0 rounded p-1 form-control" name="messages" maxlength="10000" style="background-color: #EADAD3;" type="text" required></textarea>
+                  </div>
+                  <div class="content-fluid pb-5 pb-sm-0">
+                    <button type="submit" class="btn w-100 border-0" style="background-color: #284A65; color: #FFF5EF;">Submit</button>
+                  </div>
+                </fieldset>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="messageModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="messageModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content" style="background-color: #FFF5EF;">
+        <div class="modal-header" style="background-color: #284A65; color: #FFF5EF;">
+          <h5 class="modal-title" id="messageModalLabel">Swiss Microbiome</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <span id="demo"></span>
+        </div>
+        <div class="modal-footer">
+          <button id="close" onclick="enableForm();" type="button" class="btn" style="background-color: #284A65; color: #FFF5EF;" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  <script>
+    function enableForm() {
+      console.log("Enable Form Clicked");
+      document.getElementById("form").removeAttribute("disabled");
+      document.getElementById("name").value = '';
+      document.getElementById("email").value = '';
+      document.getElementById("messages").value = '';
+      document.getElementById("mainForm").classList.remove("was-validated");
+      document.getElementById("name").classList.remove('is-valid');
+      document.getElementById("email").classList.remove('is-valid');
+      document.getElementById("messages").classList.remove('is-valid');
+    }
+  </script>
+  <script>
+    function nameValidation() {
+      var name_value = document.getElementById("name").value;
+      console.log(name_value);
+      if (name_value === '') {
+        document.getElementById("name").classList.remove('is-valid');
+        document.getElementById("name").classList.add('is-invalid');
+      } else {
+        document.getElementById("name").classList.remove('is-invalid');
+        document.getElementById("name").classList.add('is-valid');
+      }
+    };
+    function messagesValidation() {
+      var messages_value = document.getElementById("messages").value;
+      console.log(messages_value);
+      if (messages_value === '') {
+        document.getElementById("messages").classList.remove('is-valid');
+        document.getElementById("messages").classList.add('is-invalid');
+      } else {
+        document.getElementById("messages").classList.remove('is-invalid');
+        document.getElementById("messages").classList.add('is-valid');
+      }
+    };
+    function emailValidation() {
+      var email_value = document.getElementById("email").value;
+      console.log(email_value);
+      if (email_value !== '') {
+        const re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        var is_email_valid = re.test(email_value);
+        if (is_email_valid) {
+          document.getElementById("email").classList.remove('is-invalid');
+          document.getElementById("email").classList.add('is-valid');
+          return is_email_valid;
+        } else {
+          document.getElementById("email").classList.remove('is-valid');
+          document.getElementById("email").classList.add('is-invalid');
+          return is_email_valid;
+        }
+      } else {
+        document.getElementById("email").classList.remove('is-valid');
+        document.getElementById("email").classList.add('is-invalid');
+        return false
+      }
+    };
+  </script>
+  <script>
+    // Example starter JavaScript for disabling form submissions if there are invalid fields
+    (function () {
+      'use strict'
+    
+      // Fetch all the forms we want to apply custom Bootstrap validation styles to
+      var forms = document.querySelectorAll('.needs-validation')
+      var myModal = new bootstrap.Modal(document.getElementById("messageModal"), {});
+      // var BASE_URL = "localhost:8000"
+      var BASE_URL = "https://dev-dash.swissmicrobiome.ch"
+    
+      // Loop over them and prevent submission
+      Array.prototype.slice.call(forms)
+        .forEach(function (form) {
+          form.addEventListener('submit', function (event) {
+            nameValidation();
+            emailValidation();
+            messagesValidation();
+            if (!form.checkValidity()) {
+              event.preventDefault()
+              event.stopPropagation()
+            } else {
+              var this_is_email_valid = emailValidation();
+              console.log('email', this_is_email_valid);
+              if (!this_is_email_valid) {
+                event.preventDefault()
+                event.stopPropagation()
+              } else {
+                event.preventDefault()
+                var param_name = document.getElementsByName("name")[0].value
+                var param_email = document.getElementsByName("email")[0].value
+                var param_messages = document.getElementsByName("messages")[0].value
+
+                const xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange = function() {
+                  if (this.readyState === 4 && this.status === 200) {
+                    console.log('if',this.readyState)
+                    // Success Response
+                    document.getElementById("demo").innerHTML = this.responseText;
+                    myModal.show()
+                  } else if (this.readyState !== 4) {
+                    console.log('else if',this.readyState)
+                    // Error Response
+                    document.getElementById("form").setAttribute("disabled", true);
+                    myModal.hide()
+                  } else {
+                    console.log('else',this.readyState)
+                    document.getElementById("demo").innerHTML = "Failed to send email. Something went wrong.";
+                    myModal.show()
+                  }
+                };
+                xhttp.open("POST", `${BASE_URL}/email_sender/`);
+                xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                xhttp.send(`param_name=${param_name}&param_email=${param_email}&param_messages=${param_messages}`);
+              }
+            }
+            // form.classList.add('was-validated')
+          }, false)
+        })
+    })()
+  </script>
+</body>
+</html>
